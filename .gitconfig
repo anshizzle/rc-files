@@ -1,0 +1,16 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Anshul Jain
+	email = hi@ajain.me 
+[alias]
+	p  = push
+	ec = config --global -e
+	br = branch
+	tt = status
+	co = checkout
+	cm = commit -m
+
+	am = commit -a -m
+
+	hec = commit -m "Empty Commit for Heroku" --allow-empty
