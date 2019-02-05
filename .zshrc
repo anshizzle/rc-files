@@ -84,37 +84,44 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# RAILS SHORTCUTS
 alias be='bundle exec'
 alias migration-ssh="cx ssh -s 'Capyx' -e migration Penguin"
 alias migrate="rake db:migrate; be annotate"
 alias migrate-test="rake db:migrate RAILS_ENV=test"
 alias db:reset="rake db:reset"
 alias db:rollback="rake db:rollback STEP=1"
+alias wds="bin/webpack-dev-server"
+
+# DOCKER
 alias dme='eval $(docker-machine env)'
 alias ss="docker-compose exec web xvfb-run -a rspec"
 alias console="docker-compose exec web rails c"
+
+# GIT
 alias gp="git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done;"
+
+# PROJ
 alias proj="cd ~/Documents/proj"
 alias clients="cd ~/Documents/clients"
 alias capyx="cd ~/Documents/proj/capyx"
-
 alias sk="cd ~/Documents/proj/schedule-hog"
+alias ol="proj; cd open_listings"
+alias olm="proj; cd mobile"
 
-alias wds="bin/webpack-dev-server"
+# MONGO 3.6
+alias mng="/usr/local/opt/mongodb@3.6/bin/mongod --config /usr/local/etc/mongod.conf"
 
-alias sss="cd ~/Sites/sampleserve"
-alias ssw="cd ~/Sites/sampleserve/sampleserve-webapp"
-alias ssb="cd ~/Sites/sampleserve/sampleserve-infra"
-alias ssp="cd ~/Sites/sampleserve/sampleserve-infra/app/src"
+# Docker
 alias dcb="docker-compose build"
 alias dcs="docker-compose up -d" # docker-compose startserver
 alias dce="docker-compose exec"
 
-alias ss:gm="docker-compose exec app alembic revision --autogenerate -m"
-
+# POSTGRES
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-# Quick Reset Bundle for Skin Motion (reset the frontend_build)"
-alias qrb="git checkout HEAD -- skinmotion/frontend_build/*"
+
+
+
 # Unalias ohmyzsh's grb alias (for git rebase) so I can use git_remote_branch
 unalias grb
 
@@ -124,3 +131,7 @@ if [ -f '/Users/anshuljain/google-cloud-sdk/path.zsh.inc' ]; then source '/Users
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/anshuljain/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/anshuljain/google-cloud-sdk/completion.zsh.inc'; fi
 eval "$(rbenv init -)"
+
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+source ~/.bash_profile
+
